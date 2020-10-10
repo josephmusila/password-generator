@@ -1,0 +1,59 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-self: center;
+}
+.container{
+    margin: auto;
+    border: 1px solid black;
+  width: 400px;
+    padding: 10px;
+    color: white;
+    background-color: #260247;
+    font-size: 20px;
+}
+.num,
+.letter,
+.symbols,
+.all{
+    display: flex;
+   font-family: sans-serif;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom:10px ;
+}
+.pass{
+    height: 20px;
+    width: 80%;
+    background-color: hsl(120, 30%, 95%);
+    margin: auto;
+    color: #001aff;
+    font-size: 16px;
+    text-align: center;
+    font-family: sans-serif;
+    
+}
+#submit{
+    color: #e2c02b;
+    margin: auto;
+    width: 100%;
+    border: 1px solid black;
+    background: transparent;
+    font-size: 20px;
+}
+#submit:hover{
+    background: white;
+    color: black;
+}
+#parea{
+    display: flex;
+}
+.bod{
+    border: 1px dotted white;
+}
+.body{
+    border:none;
+}

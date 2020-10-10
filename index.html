@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="parea">
+            <div class="pass" id="pass"></div>
+            <button id="copy">copy</button>
+        </div>
+        <div class="num" id="nur">
+            <p>Number only
+
+                <input type="radio" name="choice" id="number">
+
+
+            </p>
+        </div>
+        <div class="letter" id="ler">
+            <p>Letters only
+
+                <input type="radio" name="choice" id="letter">
+
+
+            </p>
+        </div>
+        <div class="symbols" id="sym">
+            <p>Symbols only
+                <input type="radio" name="choice" id="symbols">
+            </p>
+        </div>
+        <div class="all" id="ally">
+            <p>all
+                <input type="radio" name="choice" id="all">
+            </p>
+        </div>
+        <button id="submit">GENERATE</button>
+    </div>
+    <script>
+        function generatepassword() {
+            var alll = document.getElementById("all").checked;
+            if (document.getElementById("all").checked) {
+                document.getElementById("ally").classList.add("bod");
+                return getpass();
+
+             } else {
+                document.getElementById("ally").classList.remove("bod");
+                document.getElementById("pass").innerHTML = "please select an option";
+            }
+
+            if (document.getElementById("symbols").checked) {
+                document.getElementById("sym").classList.add("bod");
+                return getsym();
+             } else{
+                document.getElementById("sym").classList.remove("bod");
+                document.getElementById("pass").innerHTML = "please select an option";
+            }
+
+
+            if (document.getElementById("letter").checked) {
+
+                return getletters();
+            }else{
+                document.getElementById("ler").classList.remove("bod");
+                document.getElementById("pass").innerHTML = "please select an option";
+            }
+
+/*
+
+            else if (document.getElementById("number").checked) {
+                return gennum(); */
+            }
+           
+        
+        document.getElementById("submit").addEventListener("click", generatepassword);
+
+        function copy(pass) {
+            let elem = document.getElementById("pass");
+            var copytext = elem.textContent;
+            copyText(copytext);
+
+
+            alert(copytext.value);
+        } document.getElementById("copy").addEventListener("click", copy);
+
+
+        /*  var button = document.getElementById("copy"),
+             input = document.getElementById("pass");
+             button.addEventListener("click", function(event) {
+             event.preventDefault();
+             input.select();
+             document.execCommand("copy");
+             }); */
+        function getpass() {
+            const str = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789!@#$%^&*(){}/+~`<>s?_-=';
+
+            // var ps=;
+            let ps = ' ';
+            const len = str.length;
+            for (let i = 0; i < 19; i++) {
+                ps += str[Math.floor(Math.random() * str.length)];
+            }
+          
+            document.getElementById("pass").innerHTML = ps;
+
+
+        }
+
+
+
+
+        function gennum() {
+            const num = '1234567890';
+            var numind = ' ';
+            const len = num.length;
+
+
+            for (let i = 0; i < 19; i++) {
+                numind += num[Math.floor(Math.random() * num.length)];
+            }
+
+            document.getElementById("pass").innerHTML = numind;
+        }
+        //gennum();
+        function getsym() {
+            const symbol = '!@#$%^&*(){}/+~`<>s?_-='
+            var symb = '';
+            const syl = symbol.length;
+
+            for (var i = 0; i < 19; i++) {
+                symb += symbol[Math.floor(Math.random() * symbol.length)];
+            }
+            document.getElementById("pass").innerHTML = symb;
+
+        }
+        //  getsym();
+        function getletters() {
+            const letters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
+            var lett = "";
+            const lettlength = letters.length;
+
+            for (var i = 0; i < 19; i++) {
+                lett += letters[Math.floor(Math.random() * letters.length)]
+            }
+         
+            document.getElementById("pass").innerHTML = lett;
+        }
+        //getletters();
+    </script>
+</body>
+
+</html>
